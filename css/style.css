@@ -1,0 +1,48 @@
+.jumbotron {
+    margin-top: 10px;
+    background-color: inherit;
+    padding:0.5rem 1rem !important; 
+    border: 1px solid black;
+}
+
+body {
+    background-color: inherit;
+}
+
+#container {
+    background-color: inherit;
+    border: solid 1px black;
+    width: 100%;
+
+}
+
+#cy {
+
+    height: 600px;
+    width: 1000px;
+    border: 3px solid lightskyblue;
+    background-color: ivory;
+    border-style: groove;
+    display: block;
+}
+
+.button {
+    color: black;
+}
+
+.button:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.hold-button {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.hold-button:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
+

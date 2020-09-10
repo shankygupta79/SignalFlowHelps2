@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Signal Flow Graph Solver</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel='stylesheet' href="css/style.css" />
+    <script src="js/lib/cytoscape.min.js"></script>
+    <script src="js/lib/graphlib.min.js"></script>
+</head>
+
+<body onLoad="checkFileAPI();">
+    <div class="container">
+
+        <!-- about -->
+        
+        <div class="jumbotron">
+
+            <!-- Tab panes -->
+            <div class="tab-pane active container" id="dragdrop"><br>
+
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="Third group">
+                        <button type="button" class="btn btn-outline-primary" onclick="addNode()"><b>Add Node</b></button>
+                        <button type="button" class="btn btn-outline-primary" id="addBranch" onclick="addBranch()"><b>Add Branch</b></button>
+                        <button type="button" class="btn btn-outline-primary" id="editLabel" onclick="editLabel()"><b>Edit Label</b></button>
+                        <button type="button" class="btn btn-outline-primary" id="remove" onclick="activateRemove()"><b>Remove</b></button>
+                        <button type="button" class="btn btn-outline-danger" onclick="clearAll()">Clear All</button>
+                    </div>
+
+                    <div>
+                        <div class="btn-group mr-2" role="group" aria-label="Third group"></div>
+                        <button type="button" class="btn btn-outline-success" id="start" onclick="setStart()"><b>Set Source</b></button>
+                        <button type="button" class="btn btn-outline-warning" id="end" onclick="setEnd()"><b>Set End</b></button>
+                        <button type="button" class="btn btn-outline-success" onclick="solve()"><b>Solve</b></button>
+                        
+                        <button type="button" class="btn btn-outline-primary" onclick="resizeGraph()"><b>Fit</b></button>
+                    </div>
+
+                </div>
+
+                <div id="cy">
+
+                </div>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <input type="file" class="btn button btn-outline-primary" onchange='readText(this)' />
+                        <button type="button" class="btn button btn-outline-primary" onclick="saveAsJSON('graph.json')"><b>Save as JSON</b></button>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- output -->
+        <div class="jumbotron">
+            <i><u><h2>Output</h2></u></i>
+            <p id="result"><b style="color:red">Overall Gain = ?? </b></p>
+
+            <details open>
+                <summary ><b>Forward Paths</b></summary>
+                <p id="forwardPaths"></p>
+            </details>
+            <details open>
+                <summary><b>Individual Loops</b></summary>
+                <p id="cycles"></p>
+            </details>
+            <details open>
+                <summary><b>Non Touching Loops</b></summary>
+                <p id="nonTouchingLoops"></p>
+            </details>
+            <details open>
+                <summary><b>Deltas</b></summary>
+                <p id="deltas"></p>
+            </details>
+        </div>
+    </div>
+
+    <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="js/SignalFlowGraph.js"></script>
+    <script src="js/guiUtilities.js"></script>
+    <script src="js/gui.js"></script>
+
+</body>
+
+</html>
